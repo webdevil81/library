@@ -27,8 +27,7 @@ h1 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    border: 5px solid black;
-    background-color: white;
+    
     width: 800px;    
     margin: 40px 0px;
     padding: 10px 0px;
@@ -92,5 +91,16 @@ h1 {
   .inputBtn:hover {
     color: orangered;
     cursor: pointer;
+  }
+
+  .card {
+    background-color: whitesmoke;
+    border: 5px solid black;
+    margin: 20px;
+  }
+
+  .bookCardElement {
+    margin: 10px 10px;
+    
   }
   
