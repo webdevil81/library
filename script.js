@@ -1,40 +1,19 @@
 let myLibrary = [];
-
-
-
 const libraryContainer = document.querySelector('.library');
 
+/***************************************************
+ * Modal button popup form *
+ ***************************************************/
 
-function book(name, author, pages, read) {
-    this.name = name;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-}
+const modalBtn = document.querySelector("#modal-btn")
+const modal = document.querySelector(".modal")
+const submitBtn = document.querySelector('.submit-btn');
+const closeBtn = document.querySelector(".close-btn")
 
-function addToPage() {
-    myLibrary.forEach(book => {
-        
-        const newBook = document.createElement('p');
-        newBook.textContent = book;
-        newBook.classList.add('books');
-        libraryContainer.appendChild(newBook);
-    })
-}
-
-addToPage();
-//addToMyLibrary();
-
-/****************************************
- * Modal button popup form
- ***************************************/
-
-let modalBtn = document.getElementById("modal-btn")
-let modal = document.querySelector(".modal")
-let closeBtn = document.querySelector(".close-btn")
 modalBtn.onclick = function(){
   modal.style.display = "block"
 }
+submitBtn.addEventListener('click', addBook);
 closeBtn.onclick = function(){
   modal.style.display = "none"
 }
@@ -43,3 +22,29 @@ window.onclick = function(e){
     modal.style.display = "none"
   }
 }
+
+/****************************************************
+ * Modal form values to objects and pushed to array *
+ ****************************************************/
+
+function addBook(e) {
+  e.preventDefault();
+  let book = {
+      name: document.querySelector('#name').value,
+      author: document.querySelector('#author').value,
+      pages: document.querySelector('#number').value,
+      read: document.querySelector('#read').value
+  };   
+  myLibrary.push(book);
+  document.querySelector('#name').value = '';
+  document.querySelector('#author').value = '';
+  document.querySelector('#number').value = '';
+  document.querySelector('#read').value = '';
+  modal.style.display = "none";
+}
+
+/****************************************************
+ * Create library cards *
+ ****************************************************/
+
+ 
