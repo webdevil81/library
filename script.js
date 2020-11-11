@@ -1,12 +1,15 @@
-let myLibrary = ['Book1', 'Book2', 'Book3', 'Book4', 'Book5', 'Book6'];
+let myLibrary = [];
+
+
 
 const libraryContainer = document.querySelector('.library');
 
 
-function addToMyLibrary() {
-    myLibrary.push(prompt('Enter name of book'));
-    libraryContainer.textContent = '';
-    addToPage();
+function book(name, author, pages, read) {
+    this.name = name;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
 }
 
 function addToPage() {
@@ -21,3 +24,22 @@ function addToPage() {
 
 addToPage();
 //addToMyLibrary();
+
+/****************************************
+ * Modal button popup form
+ ***************************************/
+
+let modalBtn = document.getElementById("modal-btn")
+let modal = document.querySelector(".modal")
+let closeBtn = document.querySelector(".close-btn")
+modalBtn.onclick = function(){
+  modal.style.display = "block"
+}
+closeBtn.onclick = function(){
+  modal.style.display = "none"
+}
+window.onclick = function(e){
+  if(e.target == modal){
+    modal.style.display = "none"
+  }
+}
