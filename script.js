@@ -68,16 +68,16 @@ function addToLibrary() {
     const libraryCard = document.createElement('div');
     libraryCard.classList.add('card'); 
     const name = document.createElement('p');
-    name.textContent = book.name;
+    name.textContent = 'Name: ' + book.name;
     name.classList.add('bookCardElement');
     const author = document.createElement('p');
-    author.textContent = book.author;
+    author.textContent = 'Author: ' + book.author;
     author.classList.add('bookCardElement');
     const pages = document.createElement('p');
-    pages.textContent = book.pages;
+    pages.textContent = 'Pages: ' + book.pages;
     pages.classList.add('bookCardElement');
     const read = document.createElement('p');
-    read.textContent = book.read;
+    read.textContent = 'Read: ' + book.read;
     read.classList.add('bookCardElement');
 
     libraryCard.appendChild(name);
@@ -94,4 +94,3 @@ function removeAllChildNodes(parent) {
       parent.removeChild(parent.firstChild);
   }
 }
-

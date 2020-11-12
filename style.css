@@ -17,7 +17,7 @@ h1 {
     margin-top: 20px;
 }
 
-.container {
+.libraryContainer {
     display: flex;
     justify-content: center;
     
@@ -94,9 +94,12 @@ h1 {
   }
 
   .card {
+    
     background-color: whitesmoke;
     border: 5px solid black;
     margin: 20px;
+    width: 250px;
+    padding: 10px;
   }
 
   .bookCardElement {
