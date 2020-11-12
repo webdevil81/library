@@ -7,17 +7,18 @@ const modal = document.querySelector(".modal")
 const submitBtn = document.querySelector('.submit-btn');
 const closeBtn = document.querySelector(".close-btn")
 
-modalBtn.onclick = function(){
-  modal.style.display = "block"
-}
+modalBtn.addEventListener('click', () => { modal.style.display = "block";})
 submitBtn.addEventListener('click', addBook);
-closeBtn.onclick = function(){
-  modal.style.display = "none"
-}
-window.onclick = function(e){
+closeBtn.addEventListener('click', closeModal)
+window.addEventListener('click', (e) => {
   if(e.target == modal){
-    modal.style.display = "none"
+    modal.style.display = "none";
   }
+})
+
+function closeModal(e) {
+  modal.style.display = "none";
+  e.preventDefault(); 
 }
 
 /****************************************************
@@ -26,23 +27,34 @@ window.onclick = function(e){
 
 let myLibrary = [];
 
+function Book(name, author, pages, read) {
+  this.name = name;
+  this.author = author;
+  this.pages = pages;
+  this.read = read;
+}
+
 function addBook(e) {
   e.preventDefault(); //Prevents page refresh from form submit
+  let name = document.querySelector('#name').value;
+  let author = document.querySelector('#author').value;
+  let pages = document.querySelector('#number').value;
+  let read = document.querySelector('#read').value;
+  let book = new Book(name, author, pages, read);
+  myLibrary.push(book);
+  addToLibrary();
+  document.querySelector('.inputField').value = '';
+  modal.style.display = "none";
+}
+  /*
+  //EXAMPLE OF CREATING BOOK OBJECTS WITHOUT CONSTRUCTOR
   let book = {
       name: document.querySelector('#name').value,
       author: document.querySelector('#author').value,
       pages: document.querySelector('#number').value,
       read: document.querySelector('#read').value
   };   
-  myLibrary.push(book);
-  //Clears input dields
-  document.querySelector('#name').value = '';
-  document.querySelector('#author').value = '';
-  document.querySelector('#number').value = '';
-  document.querySelector('#read').value = '';
-  modal.style.display = "none";
-  addToLibrary();
-}
+  */
 
 /****************************************************
  * Create library cards *
