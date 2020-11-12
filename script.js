@@ -52,11 +52,9 @@ const library = document.querySelector('.library');
 
 function addToLibrary() {
   removeAllChildNodes(library);  
-  myLibrary.forEach(book => {
-    
+  myLibrary.forEach(book => {  
     const libraryCard = document.createElement('div');
-    libraryCard.classList.add('card');
-    
+    libraryCard.classList.add('card'); 
     const name = document.createElement('p');
     name.textContent = book.name;
     name.classList.add('bookCardElement');
@@ -74,7 +72,6 @@ function addToLibrary() {
     libraryCard.appendChild(author);
     libraryCard.appendChild(pages);
     libraryCard.appendChild(read);
-
     library.appendChild(libraryCard)
   })
 }
