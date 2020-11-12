@@ -26,19 +26,10 @@ h1 {
 .library {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    
-    width: 800px;    
+    justify-content: center; 
+    width: 1400px;    
     margin: 40px 0px;
     padding: 10px 0px;
-}
-
-.books {
-    border: 2px solid black;
-    padding: 20px 20px;
-    margin: 20px 20px;
-    width: 100px;
-    height: 100px;
 }
 
 #modal-btn {
@@ -63,7 +54,7 @@ h1 {
   .modal-content {
     display: flex;
     justify-content: space-around;
-    background-color: black;
+    background-color: whitesmoke;
     padding: 20px; 
     margin: auto; 
     width: 230px;     
@@ -84,7 +75,6 @@ h1 {
   }
 
   .inputBtn {
-    margin-top: 20px;
     width: 105px;
     padding: 5px 10px;
   }
@@ -93,8 +83,7 @@ h1 {
     cursor: pointer;
   }
 
-  .card {
-    
+  .card {   
     background-color: whitesmoke;
     border: 5px solid black;
     margin: 20px;
@@ -104,6 +93,5 @@ h1 {
 
   .bookCardElement {
     margin: 10px 10px;
-    
   }
   
