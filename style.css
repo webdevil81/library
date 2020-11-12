@@ -39,6 +39,10 @@ h1 {
     padding: 5px 10px;
 }
 
+#modal-btn:hover {
+  cursor: pointer;
+}
+
 .modal {
     display: none;
     position: fixed; 
@@ -66,17 +70,21 @@ h1 {
     width: 200px;
     margin-top: 10px;
     font-weight: 600;
+    border: 2px solid black;
     color: black;
   }
 
   .inputButtons {
       display: flex;
       justify-content: space-between;
+      margin-top: 10px;
+      
   }
 
   .inputBtn {
     width: 105px;
     padding: 5px 10px;
+    border: 2px solid black;
   }
   .inputBtn:hover {
     color: orangered;
@@ -93,5 +101,19 @@ h1 {
 
   .bookCardElement {
     margin: 10px 10px;
+  }
+
+  .readDeleteDiv {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 15px;
+  }
+
+  .readBtn {
+    width: 100px;
+  }
+
+  .deleteBtn {
+    width: 100px;
   }
   
