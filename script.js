@@ -30,7 +30,7 @@ let myLibrary = [];
 function Book(name, author, pages) {
   this.name = name;
   this.author = author;
-  this.pages = pages;  
+  this.pages = pages;
 }
 
 function addBook(e) {
@@ -85,6 +85,10 @@ function addToLibrary() {
     readDeleteDiv.classList.add('readDeleteDiv')
     readBtn.classList.add('readBtn');
     readBtn.textContent = 'Read';
+    readBtn.addEventListener('click', () => {
+      console.log('Need to get this workign at a later date');
+      console.log(book.name);
+    })
     deleteBtn.classList.add('deleteBtn');
     deleteBtn.textContent = 'Delete';
     deleteBtn.addEventListener('click', () => {    

@@ -113,6 +113,11 @@ h1 {
     width: 100px;
   }
 
+  .notRead {
+    width: 100px;
+    background-color: tomato;
+  }
+
   .deleteBtn {
     width: 100px;
   }
