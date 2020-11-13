@@ -56,55 +56,51 @@ function addBook(e) {
   */
 
 /****************************************************
- * Create library cards *
+ * Create and delete library cards *
  ****************************************************/
 
 const library = document.querySelector('.library');
 let i = 0;
 
 function addToLibrary() {
+ 
   removeAllChildNodes(library);  
   myLibrary.forEach(book => {  
     const libraryCard = document.createElement('div');
-    libraryCard.classList.add('card'); 
-    libraryCard.setAttribute('data-att', `${myLibrary.indexOf(book)}`);   
-   
     const name = document.createElement('p');
+    const author = document.createElement('p');
+    const pages = document.createElement('p');
+    const readDeleteDiv = document.createElement('div');
+    const readBtn = document.createElement('button');
+    const deleteBtn = document.createElement('button');
+
+    libraryCard.classList.add('card'); 
+    libraryCard.setAttribute('data-att', `${myLibrary.indexOf(book)}`);     
     name.textContent = 'Name: ' + book.name;
     name.classList.add('bookCardElement');
-   
-    const author = document.createElement('p');
     author.textContent = 'Author: ' + book.author;
     author.classList.add('bookCardElement');
-   
-    const pages = document.createElement('p');
     pages.textContent = 'Pages: ' + book.pages;
     pages.classList.add('bookCardElement');  
-   
-    const readDeleteDiv = document.createElement('div');
     readDeleteDiv.classList.add('readDeleteDiv')
-    
-    const readBtn = document.createElement('button');
     readBtn.classList.add('readBtn');
     readBtn.textContent = 'Read';
-
-    const deleteBtn = document.createElement('button');
     deleteBtn.classList.add('deleteBtn');
     deleteBtn.textContent = 'Delete';
     deleteBtn.addEventListener('click', () => {    
-      i = +libraryCard.dataset.att; // Assigning value to i for array position
-      deleteCard()
-    })
+        i = +libraryCard.dataset.att; // Assigning value to i for array position
+        deleteCard()    
+    });
 
     libraryCard.appendChild(name);
     libraryCard.appendChild(author);
     libraryCard.appendChild(pages);
-    
     readDeleteDiv.appendChild(readBtn);
     readDeleteDiv.appendChild(deleteBtn);
-    libraryCard.appendChild(readDeleteDiv)
+    libraryCard.appendChild(readDeleteDiv);
+    library.appendChild(libraryCard);
 
-    library.appendChild(libraryCard)
+    setData();
   })
 }
 
@@ -117,7 +113,34 @@ function removeAllChildNodes(parent) {
 
 //Deletes node/libraryCard
 function deleteCard() {
-  console.log(i);
   myLibrary.splice(i, 1);
+    if (myLibrary.length === 0) {
+      localStorage.clear();
+    }
   addToLibrary()
 }
+
+/****************************************************
+ * Saving library to localStorage *
+ ****************************************************/
+
+// Stores myLibrary[] in locaStorage
+function setData() {
+  localStorage.setItem(`myLibrary`, JSON.stringify(myLibrary));
+}
+
+//Retrieve libraryCards from localStorage
+function restore() {
+  
+  if(!localStorage.myLibrary) {  
+      return
+  }else {
+      let objects = localStorage.getItem('myLibrary') // Retrieves info
+      objects = JSON.parse(objects);
+      myLibrary = objects;
+      
+      addToLibrary();
+  }
+}
+
+restore();
